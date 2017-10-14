@@ -1,0 +1,25 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="components/main-layout.html">
+<link rel="import" href="components/search-box.html">
+<link rel="import" href="components/article-large-box.html">
+<link rel="import" href="components/right-sidebar.html">
+
+<dom-module id="adzbyte-app">
+  <template>
+    <main-layout>
+      <search-box></search-box>
+      <article-large-box></article-large-box>
+      <right-sidebar></right-sidebar>
+    </main-layout>
+  </template>
+</dom-module>
+
+<script>
+  class AdzbyteApp extends Polymer.Element  {
+
+    static get is() { return 'adzbyte-app'; }
+
+  }
+
+  window.customElements.define(AdzbyteApp.is, AdzbyteApp);
+</script>
