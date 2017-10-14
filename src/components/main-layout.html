@@ -4,7 +4,7 @@
 <link rel="import" href="../../assets/polymer/css-grid.html">
 <link rel="import" href="../../assets/polymer/svg-icons.html">
 
-<dom-module id="main-nav">
+<dom-module id="main-layout">
   <template>
     <style include="css-grid"></style>
     <style>
@@ -84,22 +84,24 @@
     		</ul>
     	</nav>
     </aside>
-    <div class="row">
-        <div class="col-lg-9 col-md-12">
-            <div id="content">
-                <slot></slot>
+    <div class="container-fluid">
+        <div id="content">
+            <div class="row">
+                <div class="col-lg-9">
+                    <slot></slot>
+                </div>
             </div>
-        </div>    
-    </div>        
+        </div>
+    </div>
   </template>
 </dom-module>
 
 <script>
-  class MainNav extends Polymer.Element  {
+  class MainLayout extends Polymer.Element  {
 
-    static get is() { return 'main-nav'; }
+    static get is() { return 'main-layout'; }
 
   }
 
-  window.customElements.define(MainNav.is, MainNav);
+  window.customElements.define(MainLayout.is, MainLayout);
 </script>

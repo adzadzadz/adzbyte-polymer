@@ -1,0 +1,35 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="right-sidebar">
+  <template>
+  	<style>
+  		aside {
+  			z-index: 99;
+    		background: #34515e;
+  			height: 100vh;
+  			width: 22%;
+  			position: fixed;
+  			right: 0px;
+  			top: 0px;
+  		}
+  		@media screen and (max-width: 980px) {
+		    aside {
+	  			display: none;	  		
+	  		}
+		}
+  	</style>
+    <aside>
+    	
+    </aside>
+  </template>
+</dom-module>
+
+<script>
+  class RightSidebar extends Polymer.Element  {
+
+    static get is() { return 'right-sidebar'; }
+
+  }
+
+  window.customElements.define(RightSidebar.is, RightSidebar);
+</script>

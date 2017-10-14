@@ -1,21 +1,121 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../assets/polymer/global-css.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <dom-module id="article-large-box">
   <template>
   	<style include="global-css">
   		article {
   			text-align: center;
+  			margin-bottom: 120px;
   		}
-  		.lg {
-			@apply --paper-font-display-3;
+  		h1.lg {
+			@apply --paper-font-display2;
+			margin-bottom: 15px;
+		}
+		header .sub {
+			@apply --paper-font-caption;
+			padding: 5px 7px;
+			background: #dae2e6;
+		}
+		header .meta-icon {
+			--iron-icon-height: 18px;
+	        --iron-icon-width: 18px;
+		}
+		section {
+			margin-top: 30px;
 		}
   	</style>
   	<article>
   		<header>
 		    <h1 class="lg">A simple title just to fill up the space.</h1>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:create"></iron-icon> 
+		    	BY: RICK SANCHEZ
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:hourglass-empty"></iron-icon> 
+		    	WED, MAR 15, 2016
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:visibility"></iron-icon> 
+		    	500 VIEWS
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:folder"></iron-icon> 
+		    	IN: TESTING, LOVELY, CRYING
+		    </paper-button>
 	    </header>
+	    <section>
+	    	<div>
+		    	<iron-image src="../../assets/imgs/img-placeholder.png" preload fade></iron-image>
+	    	</div>
+	    	<div class="exerpt">
+	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ex. Nisi, saepe deserunt tenetur quo repudiandae nihil provident doloribus esse quam...</p>
+	    	</div>
+	    </section>
+    </article>
+    <article>
+  		<header>
+		    <h1 class="lg">A simple title just to fill up the space.</h1>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:create"></iron-icon> 
+		    	BY: RICK SANCHEZ
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:hourglass-empty"></iron-icon> 
+		    	WED, MAR 15, 2016
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:visibility"></iron-icon> 
+		    	500 VIEWS
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:folder"></iron-icon> 
+		    	IN: TESTING, LOVELY, CRYING
+		    </paper-button>
+	    </header>
+	    <section>
+	    	<div>
+		    	<iron-image src="../../assets/imgs/img-placeholder.png" preload fade></iron-image>
+	    	</div>
+	    	<div class="exerpt">
+	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ex. Nisi, saepe deserunt tenetur quo repudiandae nihil provident doloribus esse quam...</p>
+	    	</div>
+	    </section>
+    </article>
+    <article>
+  		<header>
+		    <h1 class="lg">A simple title just to fill up the space.</h1>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:create"></iron-icon> 
+		    	BY: RICK SANCHEZ
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:hourglass-empty"></iron-icon> 
+		    	WED, MAR 15, 2016
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:visibility"></iron-icon> 
+		    	500 VIEWS
+		    </paper-button>
+		    <paper-button class="sub">
+		    	<iron-icon class="meta-icon" icon="icons:folder"></iron-icon> 
+		    	IN: TESTING, LOVELY, CRYING
+		    </paper-button>
+	    </header>
+	    <section>
+	    	<div>
+		    	<iron-image src="../../assets/imgs/img-placeholder.png" preload fade></iron-image>
+	    	</div>
+	    	<div class="exerpt">
+	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, ex. Nisi, saepe deserunt tenetur quo repudiandae nihil provident doloribus esse quam...</p>
+	    	</div>
+	    </section>
     </article>
   </template>
 </dom-module>
