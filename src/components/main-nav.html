@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../../assets/polymer/css-grid.html">
 <link rel="import" href="../../assets/polymer/svg-icons.html">
 
@@ -7,7 +8,12 @@
   <template>
     <style include="css-grid"></style>
     <style>
+        #content {
+            padding-left: 150px;
+            padding-top: 20px;
+        }
     	aside {
+            z-index: 99;
     		background: #34515e;
     		width: 100px;
     		height: 100vh;
@@ -17,6 +23,7 @@
     	header#logo {
     		background: #607d8b;
     		padding: 25px 4px;
+    		cursor: pointer;
     	}
     	nav ul {
     		color: #fff;
@@ -27,8 +34,7 @@
     	}
     	nav ul li {
     		width: 100%;
-    		padding: 10px 14px;
-    		margin-bottom: 20px;
+    		padding: 20px 14px;
     		color: #8eacbb;
     	}
     	nav ul li:hover {
@@ -47,32 +53,44 @@
 	        --iron-icon-width: 70px;
     	}
     </style>
-
+    
     <aside>
     	<header id="logo">
     		<img src="/assets/imgs/logo.png" alt="Logo">
+    		<paper-ripple fit></paper-ripple>
     	</header>
     	<nav>
     		<ul>
     			<li>
 					<iron-icon icon="adzbyte:home"></iron-icon>
+					<paper-ripple></paper-ripple>
     			</li>
     			<li>
     				<iron-icon icon="adzbyte:description"></iron-icon>
+    				<paper-ripple></paper-ripple>
     			</li>
     			<li>
     				<iron-icon icon="adzbyte:photo-library"></iron-icon>
+    				<paper-ripple></paper-ripple>
     			</li>
     			<li>
     				<iron-icon icon="adzbyte:contact-mail"></iron-icon>
+    				<paper-ripple></paper-ripple>
     			</li>
     			<li class="end">
     				<iron-icon icon="adzbyte:settings"></iron-icon>
+    				<paper-ripple></paper-ripple>
     			</li>
     		</ul>
     	</nav>
     </aside>
-
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <div id="content">
+                <slot></slot>
+            </div>
+        </div>    
+    </div>        
   </template>
 </dom-module>
 

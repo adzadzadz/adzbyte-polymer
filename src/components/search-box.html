@@ -1,8 +1,25 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-search/paper-search.html">
 
 <dom-module id="search-box">
   <template>
-    
+  	<style>
+  		:root {
+  			--paper-search-bar-height: 90px;
+  			--background-color: #dae2e6;
+  			--input-styles: {
+				font-size: 24px;
+				color: #7c868b;
+  			};
+  		}
+  		#searchbox-wrap {
+  			padding: 10px 25px;
+  		}
+  	</style>
+  	<div id="searchbox-wrap">
+	    <paper-search-bar placeholder="Looking for something?" disable-filter-button>
+		</paper-search-bar>
+	</div>
   </template>
 </dom-module>
 

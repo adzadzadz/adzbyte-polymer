@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+
+<dom-module id="global-css">
+<template>
+<custom-style>
+	<style>
+		h1.lg {
+			@apply --paper-font-display-3;
+		}
+	</style>
+</custom-style>		
+</template>
+</dom-module>
+
+<script>
+  class GlobalCss extends Polymer.Element  {
+
+    static get is() { return 'global-css'; }
+
+  }
+  
+  window.customElements.define(GlobalCss.is, GlobalCss);
+
+</script>

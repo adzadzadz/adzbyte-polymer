@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../assets/polymer/global-css.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+<dom-module id="article-large-box">
+  <template>
+  	<style include="global-css">
+  		article {
+  			text-align: center;
+  		}
+  		.lg {
+			@apply --paper-font-display-3;
+		}
+  	</style>
+  	<article>
+  		<header>
+		    <h1 class="lg">A simple title just to fill up the space.</h1>
+	    </header>
+    </article>
+  </template>
+</dom-module>
+
+<script>
+  class ArticleLargeBox extends Polymer.Element  {
+
+    static get is() { return 'article-large-box'; }
+
+  }
+
+  window.customElements.define(ArticleLargeBox.is, ArticleLargeBox);
+</script>
