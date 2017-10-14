@@ -1,0 +1,87 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../assets/polymer/css-grid.html">
+<link rel="import" href="../../assets/polymer/svg-icons.html">
+
+<dom-module id="main-nav">
+  <template>
+    <style include="css-grid"></style>
+    <style>
+    	aside {
+    		background: #34515e;
+    		width: 100px;
+    		height: 100vh;
+    		position: fixed;
+    		left: 0px;
+    	}
+    	header#logo {
+    		background: #607d8b;
+    		padding: 25px 4px;
+    	}
+    	nav ul {
+    		color: #fff;
+    		list-style: none;
+    		padding: 0;
+    		margin: 0;
+    		width: 100%;
+    	}
+    	nav ul li {
+    		width: 100%;
+    		padding: 10px 14px;
+    		margin-bottom: 20px;
+    		color: #8eacbb;
+    	}
+    	nav ul li:hover {
+    		background: #607d8b;
+    		color: #fff;
+    		cursor: pointer;
+    	}
+    	nav ul li.end {
+    		position: fixed;
+    		bottom: 0px;
+    		width: 100px;
+    		margin: 0;
+    	}
+    	iron-icon {
+    		--iron-icon-height: 70px;
+	        --iron-icon-width: 70px;
+    	}
+    </style>
+
+    <aside>
+    	<header id="logo">
+    		<img src="/assets/imgs/logo.png" alt="Logo">
+    	</header>
+    	<nav>
+    		<ul>
+    			<li>
+					<iron-icon icon="adzbyte:home"></iron-icon>
+    			</li>
+    			<li>
+    				<iron-icon icon="adzbyte:description"></iron-icon>
+    			</li>
+    			<li>
+    				<iron-icon icon="adzbyte:photo-library"></iron-icon>
+    			</li>
+    			<li>
+    				<iron-icon icon="adzbyte:contact-mail"></iron-icon>
+    			</li>
+    			<li class="end">
+    				<iron-icon icon="adzbyte:settings"></iron-icon>
+    			</li>
+    		</ul>
+    	</nav>
+    </aside>
+
+  </template>
+</dom-module>
+
+<script>
+  class MainNav extends Polymer.Element  {
+
+    static get is() { return 'main-nav'; }
+
+  }
+
+  window.customElements.define(MainNav.is, MainNav);
+</script>
