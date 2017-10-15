@@ -6,6 +6,9 @@
 <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="/bower_components/paper-button/paper-button.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="/bower_components/juicy-html/juicy-html.html">
+<link rel="import" href="/src/components/article-single.html">
 
 <dom-module id="article-large-box">
   <template>
@@ -31,46 +34,59 @@
 			margin-top: 30px;
 		}
   	</style>
-
-  	<template is="dom-repeat" items={{posts}} as="post">
+    
+    <template is="dom-repeat" items={{posts}} as="post" initial-count="3">
     	<article>
-	  		<header>
-			    <h1 class="lg">[[post.title.rendered]]</h1>
-			    <paper-button class="sub">
-			    	<iron-icon class="meta-icon" icon="icons:create"></iron-icon> 
-			    	BY: RICK SANCHEZ
-			    </paper-button>
-			    <paper-button class="sub">
-			    	<iron-icon class="meta-icon" icon="icons:hourglass-empty"></iron-icon> 
-			    	WED, MAR 15, 2016
-			    </paper-button>
-			    <paper-button class="sub">
-			    	<iron-icon class="meta-icon" icon="icons:visibility"></iron-icon> 
-			    	500 VIEWS
-			    </paper-button>
-			    <paper-button class="sub">
-			    	<iron-icon class="meta-icon" icon="icons:folder"></iron-icon> 
-			    	IN: TESTING, LOVELY, CRYING
-			    </paper-button>
-		    </header>
-		    <section>
-		    	<div class="lol">
-			    	<iron-image src="../../assets/imgs/img-placeholder.png" preload fade></iron-image>
-		    	</div>
-		    	<div class$="excerpt{{post.id}}">
-		    		{{_encodeEntities(post.excerpt.rendered, post.id)}}
-		    	</div>
-		    </section>
-	    </article>
+    		<header>
+  		    <h1 class="lg">[[post.title.rendered]]</h1>
+  		    <paper-button class="sub">
+  		    	<iron-icon class="meta-icon" icon="icons:create"></iron-icon> 
+  		    	BY: [[post._embedded.author.0.name]]
+  		    </paper-button>
+  		    <paper-button class="sub">
+  		    	<iron-icon class="meta-icon" icon="icons:hourglass-empty"></iron-icon> 
+  		    	<!-- WED, MAR 15, 2016 -->
+  		    	{{_setDate(post.date)}}
+  		    </paper-button>
+  		    <paper-button class="sub">
+  		    	<iron-icon class="meta-icon" icon="icons:visibility"></iron-icon> 
+  		    	500 VIEWS
+  		    </paper-button>
+  		    <paper-button class="sub">
+  		    	<iron-icon class="meta-icon" icon="icons:folder"></iron-icon> 
+  		    	IN: 
+  		    	<template 
+              is="dom-repeat" 
+              items=[[post._embedded.wp:term.1]]
+              as="tag">
+  		    		[[tag.name]],
+  		    	</template>
+  		    </paper-button>
+  	    </header>
+  	    <section>
+  	    	<div class="lol">
+  		    	<iron-image 
+  		    		src="[[post._embedded.wp:featuredmedia.0.media_details.sizes.medium_large.source_url]]" 
+  		    		preload 
+  		    		fade>
+  	    		</iron-image>
+  	    	</div>
+  	    	<div class="excerpt">
+  	    		<template is="juicy-html" html="{{post.excerpt.rendered}}"></template>
+  	    	</div>
+  	    </section>
+      </article>
     </template>
   	
-	
-	<iron-ajax
-	 	auto
-	 	url="http://adzbyte.com/wp-json/wp/v2/posts"
-	 	handle-as="json"
-	 	method="GET"
-	 	on-response="_handlePosts"></iron-ajax>
+    <!-- <article-single></article-single> -->
+
+  	<iron-ajax
+  	 	auto
+  	 	url="http://adzbyte.com/wp-json/wp/v2/posts?_embed"
+  	 	handle-as="json"
+  	 	method="GET"
+  	 	on-response="_handlePosts">
+    </iron-ajax>
   </template>
 </dom-module>
 
@@ -79,25 +95,13 @@
 
     static get is() { return 'article-large-box'; }
 
-    static get properties() {
-    	return {
-    		posts: Object
-    	}
-    }
-
     _handlePosts(e) {
     	this.set('posts', e.detail.response);
     }
-
-    _encodeEntities(value, id) {
-    	return value;
-    	console.log(this.shadowRoot.querySelector(".excerpt" + id.toString()));
-    	// var div = this.shadowRoot.querySelector("#excerpt-" + id);
-    	// console.log(div);
-	    // div.innerHTML = value;
-	    // console.log(div.innerHTML);
-	    // return div.innerHTML;
-	}
+    _setDate(date) {
+    	var d = new Date(date);
+    	return d.toDateString();
+    }
 
   }
 
